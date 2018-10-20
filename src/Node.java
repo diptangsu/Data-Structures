@@ -18,10 +18,21 @@ public class Node {
         prev = x.prev;
     }
 
-    public boolean equals(Node x) {
-        if (data != x.data) {
-            return false;
+    @Override
+    public int hashCode()
+    {
+        return data;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof Node)
+        {
+            Node n = (Node)obj;
+            return data == n.data;
         }
-        return true;
+        else
+            return false;
     }
 }
