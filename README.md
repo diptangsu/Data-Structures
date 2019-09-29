@@ -5,13 +5,10 @@ All programs are written in java in IntelliJ IDEA.
 
 The .java files can be found in \src
 
-It is incomplete and might contain a few mistakes. Please inform if mistakes are found.
+
+# Stack
+Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
 
 
-# Contribute
-1. Fork this repository
-2. Clone it
-3. Create a new branch with an appropriate name
-4. Commit changes to that branch
-5. Push changes to your forked repository
-6. Create a pull request
+## Contributing
+To start contributing, check out [CONTRIBUTING.md](https://github.com/diptangsu/Data-Structures/blob/master/CONTRIBUTING.MD). New contributors are always welcome to support this project. Check out issues labelled as `Hacktoberfest` if you are up for some grabs! :)
