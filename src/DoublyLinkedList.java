@@ -21,7 +21,7 @@ public class DoublyLinkedList {
                     "4. Delete from End\n" +
                     "5. Display\n" +
                     "6. Reverse\n" +
-//                    "7. Size\n" +
+                    "7. Size\n" +
                     "0. Exit\n" +
                     "Enter your choice: ");
             ch = sc.nextInt();
@@ -61,15 +61,28 @@ public class DoublyLinkedList {
                     doublyLinkedList.reverse();
                     System.out.println("The Linked List has been reversed");
                     break;
-//                case 7:
-//                    System.out.println(doublyLinkedList.size());
-//                    break;
+                case 7:
+                    System.out.println("The size is : " + doublyLinkedList.size());
+                    break;
 
                 default:
                     System.out.println("Enter a valid choice you blind fuck!");
             }
             System.out.println();
         }
+    }
+
+    private int size() {
+        if(isEmpty())
+            return 0;
+
+        int counter = 1;
+        Node temp = head;
+        while(temp.next != null) {
+            temp = temp.next;
+            counter++;
+        }
+        return counter;
     }
 
     private void reverse() {
