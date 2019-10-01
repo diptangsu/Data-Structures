@@ -17,8 +17,8 @@ public class DoublyLinkedList {
         for (; ; ) {
             System.out.print("1. Insert at Front\n" +
                     "2. Insert at End\n" +
-                    "3. Delete at Front\n" +
-//                    "4. Delete at End\n" +
+                    "3. Delete from Front\n" +
+                    "4. Delete from End\n" +
                     "5. Display\n" +
 //                    "6. Reverse\n" +
 //                    "7. Size\n" +
@@ -40,19 +40,19 @@ public class DoublyLinkedList {
                     doublyLinkedList.insertAtEnd(x);
                     break;
                 case 3:
-                    del = doublyLinkedList.deleteAtFront();
+                    del = doublyLinkedList.deleteFromFront();
                     if (del == -999)
                         System.out.println("Linked List is empty");
                     else
                         System.out.println(del + " has been removed from the Linked List");
                     break;
-//                case 5:
-//                    del = linkedList.deleteAtEnd();
-//                    if (del == -999)
-//                        System.out.println("Linked List is empty");
-//                    else
-//                        System.out.println(del + " has been removed from the Linked List");
-//                    break;
+                case 4:
+                    del = doublyLinkedList.deleteFromEnd();
+                    if (del == -999)
+                        System.out.println("Linked List is empty");
+                    else
+                        System.out.println(del + " has been removed from the Linked List");
+                    break;
 //                case 6:
 //                    System.out.print("Enter the position which you want to remove : ");
 //                    pos = sc.nextInt();
@@ -96,7 +96,25 @@ public class DoublyLinkedList {
         }
     }
 
-    private int deleteAtFront() {
+    private int deleteFromEnd() {
+        if(isEmpty())
+            return -999;
+
+        Node temp = head;
+        while(temp.next != null) {
+            temp = temp.next;
+        }
+        int value = temp.data;
+        if(temp.prev != null) {
+            temp.prev.next = null;
+        }
+        else {
+            head = null;
+        }
+        return value;
+    }
+
+    private int deleteFromFront() {
         if(isEmpty())
             return -999;
 
