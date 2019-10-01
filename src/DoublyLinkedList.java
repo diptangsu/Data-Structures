@@ -16,12 +16,12 @@ public class DoublyLinkedList {
         loop:
         for (; ; ) {
             System.out.print("1. Insert at Front\n" +
-//                    "2. Insert at End\n" +
+                    "2. Insert at End\n" +
 //                    "3. Insert at Position\n" +
 //                    "4. Delete at Front\n" +
 //                    "5. Delete at End\n" +
 //                    "6. Delete at Position\n" +
-//                    "7. Display\n" +
+                    "7. Display\n" +
 //                    "8. Reverse\n" +
 //                    "9. Recursive Reverse\n" +
 //                    "10. Size\n" +
@@ -39,11 +39,11 @@ public class DoublyLinkedList {
                     x = sc.nextInt();
                     doublyLinkedList.insertAtFront(x);
                     break;
-//                case 2:
-//                    System.out.print("Enter the value you want to insert : ");
-//                    x = sc.nextInt();
-//                    linkedList.insertAtEnd(x);
-//                    break;
+                case 2:
+                    System.out.print("Enter the value you want to insert : ");
+                    x = sc.nextInt();
+                    doublyLinkedList.insertAtEnd(x);
+                    break;
 //                case 3:
 //                    System.out.print("Enter the value you want to insert : ");
 //                    x = sc.nextInt();
@@ -74,10 +74,10 @@ public class DoublyLinkedList {
 //                    else
 //                        System.out.println(del + " has been removed from the Linked List");
 //                    break;
-//                case 7:
-//                    System.out.println("Linked List : ");
-//                    linkedList.display();
-//                    break;
+                case 7:
+                    System.out.println("Linked List : ");
+                    doublyLinkedList.display();
+                    break;
 //                case 8:
 //                    linkedList.reverse();
 //                    System.out.println("The Linked List has been reversed");
@@ -118,5 +118,29 @@ public class DoublyLinkedList {
             head.prev = newNode;
 
         head = newNode;
+    }
+
+    private void insertAtEnd(int value) {
+        Node newNode = new Node(value);
+
+        if(head == null) {
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        while(temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.prev = temp;
+    }
+
+    private void display() {
+        Node t;
+        for (t = head; t != null; t = t.next) {
+            System.out.print(t.data + " ");
+        }
+        System.out.println();
     }
 }
