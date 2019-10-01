@@ -20,9 +20,9 @@ public class DoublyLinkedList {
                     "3. Delete from Front\n" +
                     "4. Delete from End\n" +
                     "5. Display\n" +
-//                    "6. Reverse\n" +
+                    "6. Reverse\n" +
 //                    "7. Size\n" +
-//                    "0. Exit\n" +
+                    "0. Exit\n" +
                     "Enter your choice: ");
             ch = sc.nextInt();
 
@@ -53,46 +53,38 @@ public class DoublyLinkedList {
                     else
                         System.out.println(del + " has been removed from the Linked List");
                     break;
-//                case 6:
-//                    System.out.print("Enter the position which you want to remove : ");
-//                    pos = sc.nextInt();
-//                    del = linkedList.deleteAtPos(pos);
-//                    if (del == -999)
-//                        System.out.println("Position is invalid");
-//                    else
-//                        System.out.println(del + " has been removed from the Linked List");
-//                    break;
-                case 7:
+                case 5:
                     System.out.println("Linked List : ");
                     doublyLinkedList.display();
                     break;
-//                case 8:
-//                    linkedList.reverse();
-//                    System.out.println("The Linked List has been reversed");
+                case 6:
+                    doublyLinkedList.reverse();
+                    System.out.println("The Linked List has been reversed");
+                    break;
+//                case 7:
+//                    System.out.println(doublyLinkedList.size());
 //                    break;
-//                case 9:
-//                    linkedList.recursiveReverse(linkedList.start, null);
-//                    System.out.println("The Linked List has been reversed");
-//                    break;
-//                case 10:
-//                    System.out.println(linkedList.size());
-//                    break;
-//                case 11:
-//                    System.out.print("Enter the size of the group you want to reverse : ");
-//                    x = sc.nextInt();
-//                    linkedList.start = linkedList.reverseGroup(linkedList.start, x);
-//                    System.out.println("The Linked ist has been reversed in groups of " + x);
-//                    break;
-//                case 12:
-//                    if (linkedList.isPalindromeList())
-//                        System.out.println("The Linked List is a palindrome");
-//                    else
-//                        System.out.println("The Linked List is not a palindrome");
-//                    break;
+
                 default:
                     System.out.println("Enter a valid choice you blind fuck!");
             }
             System.out.println();
+        }
+    }
+
+    private void reverse() {
+        Node temp = null;
+        Node currentNode = head;
+
+        while (currentNode != null) {
+            temp = currentNode.prev;
+            currentNode.prev = currentNode.next;
+            currentNode.next = temp;
+            currentNode = currentNode.prev;
+        }
+
+        if (temp != null) {
+            head = temp.prev;
         }
     }
 
