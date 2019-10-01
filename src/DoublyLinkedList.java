@@ -17,16 +17,11 @@ public class DoublyLinkedList {
         for (; ; ) {
             System.out.print("1. Insert at Front\n" +
                     "2. Insert at End\n" +
-//                    "3. Insert at Position\n" +
-//                    "4. Delete at Front\n" +
-//                    "5. Delete at End\n" +
-//                    "6. Delete at Position\n" +
-                    "7. Display\n" +
-//                    "8. Reverse\n" +
-//                    "9. Recursive Reverse\n" +
-//                    "10. Size\n" +
-//                    "11. Reverse in groups\n" +
-//                    "12. Check if the Linked List is a palindrome\n" +
+                    "3. Delete at Front\n" +
+//                    "4. Delete at End\n" +
+                    "5. Display\n" +
+//                    "6. Reverse\n" +
+//                    "7. Size\n" +
 //                    "0. Exit\n" +
                     "Enter your choice: ");
             ch = sc.nextInt();
@@ -44,20 +39,13 @@ public class DoublyLinkedList {
                     x = sc.nextInt();
                     doublyLinkedList.insertAtEnd(x);
                     break;
-//                case 3:
-//                    System.out.print("Enter the value you want to insert : ");
-//                    x = sc.nextInt();
-//                    System.out.print("Enter the position where you want to enter it : ");
-//                    pos = sc.nextInt();
-//                    linkedList.insertAtPos(x, pos);
-//                    break;
-//                case 4:
-//                    del = linkedList.deleteAtFront();
-//                    if (del == -999)
-//                        System.out.println("Linked List is empty");
-//                    else
-//                        System.out.println(del + " has been removed from the Linked List");
-//                    break;
+                case 3:
+                    del = doublyLinkedList.deleteAtFront();
+                    if (del == -999)
+                        System.out.println("Linked List is empty");
+                    else
+                        System.out.println(del + " has been removed from the Linked List");
+                    break;
 //                case 5:
 //                    del = linkedList.deleteAtEnd();
 //                    if (del == -999)
@@ -108,6 +96,22 @@ public class DoublyLinkedList {
         }
     }
 
+    private int deleteAtFront() {
+        if(isEmpty())
+            return -999;
+
+        Node temp = head;
+        int value = temp.data;
+        head = temp.next;
+        if(temp.next != null)
+            temp.next.prev = null;
+        return value;
+    }
+
+    private boolean isEmpty() {
+        return head == null;
+    }
+
     private void insertAtFront(int value) {
         Node newNode = new Node(value);
 
@@ -123,7 +127,7 @@ public class DoublyLinkedList {
     private void insertAtEnd(int value) {
         Node newNode = new Node(value);
 
-        if(head == null) {
+        if(isEmpty()) {
             head = newNode;
             return;
         }
