@@ -4,6 +4,7 @@ This contains all the programs for data structures that are a part of the syllab
 All programs are written in java in IntelliJ IDEA.
 
 The .java files can be found in \src
+the .c files can be found in \src-c
 
 
 # Stack
