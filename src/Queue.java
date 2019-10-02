@@ -95,8 +95,9 @@ public class Queue {
             System.out.println("Queue is empty");
             return;
         }
-        for (int i = front; i <= rear; i++)
-            System.out.print(queue[i] + " ");
-        System.out.println();
+        System.out.print("[");
+        for (int i = front; i < rear; i++)
+            System.out.print(queue[i] + ", ");
+        System.out.println(queue[rear] + "]");
     }
 }
