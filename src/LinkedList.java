@@ -1,3 +1,5 @@
+import exception.InvalidPositionException;
+
 import java.util.Scanner;
 
 public class LinkedList {
@@ -139,7 +141,7 @@ public class LinkedList {
 
     private int deleteAtEnd() {
         if (start == null)
-            return -999;
+            throw new InvalidPositionException("Cannot delete at end since the LinkedList is empty");
         Node t;
         for (t = start; t.next.next != null; t = t.next) ;
         int del = t.next.data;
@@ -149,7 +151,7 @@ public class LinkedList {
 
     private int deleteAtFront() {
         if (start == null)
-            return -999;
+            throw new InvalidPositionException("Cannot delete at front since the LinkedList is empty");
         int del = start.data;
         start = start.next;
         return del;
@@ -162,7 +164,7 @@ public class LinkedList {
         if (pos == size())
             return deleteAtEnd();
         if (pos < 0 || pos > size())
-            return -999;
+            throw new InvalidPositionException("Cannot delete at invalid position" + pos);
         Node t;
         int i = 0;
         for (t = start; i < pos - 2; i++, t = t.next) ;
