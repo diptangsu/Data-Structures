@@ -1,3 +1,6 @@
+import exception.UnderflowException;
+import exception.OverflowException;
+
 import java.util.Scanner;
 
 public class Queue {
@@ -69,11 +72,14 @@ public class Queue {
         if (!isFull())
             queue[++rear] = x;
         else
-            System.out.println("Queue is full. Unable to enqueue");
+            throw new OverflowException("Queue is full. Unable to enqueue");
     }
 
     public int dequeue() {
-        return !isEmpty() ? queue[front++] : Integer.MIN_VALUE;
+        if(isEmpty()) {
+            throw new UnderflowException("Queue is empty. Unable to dequeue");
+        }
+        return queue[front++];
     }
 
     public void display() {

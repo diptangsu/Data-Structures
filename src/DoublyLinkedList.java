@@ -1,3 +1,5 @@
+import exception.InvalidPositionException;
+
 import java.util.Scanner;
 
 public class DoublyLinkedList {
@@ -103,7 +105,7 @@ public class DoublyLinkedList {
 
     private int deleteFromEnd() {
         if(isEmpty())
-            return -999;
+            throw new InvalidPositionException("Cannot delete from end since DoublyLinkedList is empty");
 
         Node temp = head;
         while(temp.next != null) {
@@ -121,7 +123,7 @@ public class DoublyLinkedList {
 
     private int deleteFromFront() {
         if(isEmpty())
-            return -999;
+            throw new InvalidPositionException("Cannot delete from front since DoublyLinkedList is empty");
 
         Node temp = head;
         int value = temp.data;
