@@ -4,7 +4,10 @@ import Exceptions.UnderflowException;
 import java.util.Scanner;
 
 public class CircularQueue {
-    private int queue[], size, front, rear;
+    private int[] queue;
+    private int size;
+    private int front;
+    private int rear;
 
     public CircularQueue() {
         queue = null;
@@ -18,7 +21,7 @@ public class CircularQueue {
         queue = new int[size];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int ch, x;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the queue : ");

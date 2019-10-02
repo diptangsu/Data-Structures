@@ -4,7 +4,7 @@ import Exceptions.UnderflowException;
 import java.util.Scanner;
 
 public class Stack {
-    private int stack[];
+    private int[] stack;
     private int size, top;
 
     Stack() {
@@ -19,7 +19,7 @@ public class Stack {
         stack = new int[size];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int ch, x;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the stack : ");

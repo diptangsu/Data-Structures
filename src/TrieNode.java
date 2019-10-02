@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 class TrieNode {
     char data;
     boolean isEnd;

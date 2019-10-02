@@ -10,7 +10,7 @@ public class DoublyLinkedList {
         this.head = null;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
         int ch, x, pos, del;
@@ -75,12 +75,12 @@ public class DoublyLinkedList {
     }
 
     private int size() {
-        if(isEmpty())
+        if (isEmpty())
             return 0;
 
         int counter = 1;
         Node temp = head;
-        while(temp.next != null) {
+        while (temp.next != null) {
             temp = temp.next;
             counter++;
         }
@@ -104,31 +104,30 @@ public class DoublyLinkedList {
     }
 
     private int deleteFromEnd() {
-        if(isEmpty())
+        if (isEmpty())
             throw new InvalidPositionException("Cannot delete from end since DoublyLinkedList is empty");
 
         Node temp = head;
-        while(temp.next != null) {
+        while (temp.next != null) {
             temp = temp.next;
         }
         int value = temp.data;
-        if(temp.prev != null) {
+        if (temp.prev != null) {
             temp.prev.next = null;
-        }
-        else {
+        } else {
             head = null;
         }
         return value;
     }
 
     private int deleteFromFront() {
-        if(isEmpty())
+        if (isEmpty())
             throw new InvalidPositionException("Cannot delete from front since DoublyLinkedList is empty");
 
         Node temp = head;
         int value = temp.data;
         head = temp.next;
-        if(temp.next != null)
+        if (temp.next != null)
             temp.next.prev = null;
         return value;
     }
@@ -152,13 +151,13 @@ public class DoublyLinkedList {
     private void insertAtEnd(int value) {
         Node newNode = new Node(value);
 
-        if(isEmpty()) {
+        if (isEmpty()) {
             head = newNode;
             return;
         }
 
         Node temp = head;
-        while(temp.next != null) {
+        while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = newNode;

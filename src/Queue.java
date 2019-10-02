@@ -1,10 +1,13 @@
-import exception.UnderflowException;
-import exception.OverflowException;
+import Exceptions.OverflowException;
+import Exceptions.UnderflowException;
 
 import java.util.Scanner;
 
 public class Queue {
-    private int queue[], size, front, rear;
+    private int[] queue;
+    private int size;
+    private int front;
+    private int rear;
 
     public Queue() {
         queue = null;
@@ -18,7 +21,7 @@ public class Queue {
         queue = new int[size];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int ch, x;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the queue : ");
@@ -39,14 +42,19 @@ public class Queue {
                 case 1:
                     System.out.print("Enter the number you want to enqueue : ");
                     x = sc.nextInt();
-                    q.enqueue(x);
+                    try {
+                        q.enqueue(x);
+                    } catch (OverflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
-                    x = q.dequeue();
-                    if (x == Integer.MIN_VALUE)
-                        System.out.println("Queue is empty");
-                    else
+                    try {
+                        x = q.dequeue();
                         System.out.println(x + " has been removed");
+                    } catch (UnderflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
                     q.display();
@@ -66,7 +74,7 @@ public class Queue {
         return front > rear;
     }
 
-    public void enqueue(int x) {
+    public void enqueue(int x) throws OverflowException {
         if (front == -1)
             ++front;
         if (!isFull())
@@ -75,15 +83,15 @@ public class Queue {
             throw new OverflowException("Queue is full. Unable to enqueue");
     }
 
-    public int dequeue() {
-        if(isEmpty()) {
+    public int dequeue() throws UnderflowException {
+        if (isEmpty()) {
             throw new UnderflowException("Queue is empty. Unable to dequeue");
         }
         return queue[front++];
     }
 
     public void display() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("Queue is empty");
             return;
         }

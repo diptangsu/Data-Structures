@@ -19,20 +19,16 @@ public class Node {
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return data;
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof Node)
-        {
-            Node n = (Node)obj;
+    public boolean equals(Object obj) {
+        if (obj instanceof Node) {
+            Node n = (Node) obj;
             return data == n.data;
-        }
-        else
+        } else
             return false;
     }
 }
