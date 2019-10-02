@@ -1,3 +1,6 @@
+import exception.OverflowException;
+import exception.UnderflowException;
+
 import java.util.Scanner;
 
 public class Stack {
@@ -68,11 +71,14 @@ public class Stack {
         if (!isFull())
             stack[++top] = x;
         else
-            System.out.println("Stack is full. Unable to push");
+            throw new OverflowException("Stack is full. Unable to push");
     }
 
     private int pop() {
-        return !isEmpty() ? stack[top--] : Integer.MIN_VALUE;
+        if(isEmpty())
+            throw new UnderflowException("Stack is empty. Unable to pop");
+
+        return stack[top--];
     }
 
     private void display() {

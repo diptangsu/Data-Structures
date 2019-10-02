@@ -1,3 +1,5 @@
+import exception.OverflowException;
+
 import java.util.Scanner;
 
 public class CircularQueue {
@@ -69,7 +71,7 @@ public class CircularQueue {
             rear = (rear + 1) % size;
             queue[rear] = x;
         } else
-            System.out.println("Queue is full");
+            throw new OverflowException("Cannot enqueue. Queue is full");
     }
 
     public int dequeue() {
@@ -77,7 +79,7 @@ public class CircularQueue {
             front = (front + 1) % size;
             return queue[front];
         } else
-            return Integer.MIN_VALUE;
+            throw new OverflowException("Cannot dequeue. Queue is empty");
     }
 
     public void display() {
