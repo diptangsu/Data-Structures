@@ -35,17 +35,24 @@ public class Stack {
                 case 0:
                     break loop;
                 case 1:
+                	if(!s.isFull()) {
                     System.out.print("Enter the number you want to push : ");
                     x = sc.nextInt();
-                    s.push(x);
+                
+                    	s.push(x);
+                    	}
+                    else
+                    	System.out.println("Stack is full");
                     break;
                 case 2:
-                    x = s.pop();
-                    if (x == Integer.MIN_VALUE)
-                        System.out.println("Stack is empty");
-                    else
-                        System.out.println(x + " has been popped");
-                    break;
+                	if(!s.isEmpty())
+                	{
+                		x = s.pop();
+                		System.out.println(x + " has been popped");
+                	}
+                	else
+                		System.out.println("Stack is empty");
+                	break;
                 case 3:
                     s.display();
                     break;
