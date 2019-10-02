@@ -1,5 +1,5 @@
-import Exceptions.StackOverflowException;
-import Exceptions.StackUnderflowException;
+import Exceptions.OverflowException;
+import Exceptions.UnderflowException;
 
 import java.util.Scanner;
 
@@ -42,7 +42,7 @@ public class Stack {
                     x = sc.nextInt();
                     try {
                         s.push(x);
-                    } catch (StackOverflowException e) {
+                    } catch (OverflowException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -50,7 +50,7 @@ public class Stack {
                     try {
                         x = s.pop();
                         System.out.println(x + " has been popped");
-                    } catch (StackUnderflowException e) {
+                    } catch (UnderflowException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -72,18 +72,18 @@ public class Stack {
         return top == -1;
     }
 
-    private void push(int x) throws StackOverflowException {
+    private void push(int x) throws OverflowException {
         if (!isFull())
             stack[++top] = x;
         else
-            throw new StackOverflowException("Stack is full");
+            throw new OverflowException("Stack is full");
     }
 
-    private int pop() throws StackUnderflowException {
+    private int pop() throws UnderflowException {
         if (!isEmpty())
             return stack[top--];
         else
-            throw new StackUnderflowException("Stack is empty");
+            throw new UnderflowException("Stack is empty");
     }
 
     private void display() {

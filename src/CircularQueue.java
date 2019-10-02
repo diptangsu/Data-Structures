@@ -1,4 +1,5 @@
-import exception.OverflowException;
+import Exceptions.OverflowException;
+import Exceptions.UnderflowException;
 
 import java.util.Scanner;
 
@@ -39,14 +40,19 @@ public class CircularQueue {
                 case 1:
                     System.out.print("Enter the number you want to enqueue : ");
                     x = sc.nextInt();
-                    q.enqueue(x);
+                    try {
+                        q.enqueue(x);
+                    } catch (OverflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
-                    x = q.dequeue();
-                    if (x == Integer.MIN_VALUE)
-                        System.out.println("Queue is empty");
-                    else
+                    try {
+                        x = q.dequeue();
                         System.out.println(x + " has been removed");
+                    } catch (UnderflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
                     q.display();
@@ -66,7 +72,7 @@ public class CircularQueue {
         return front == rear;
     }
 
-    public void enqueue(int x) {
+    public void enqueue(int x) throws OverflowException {
         if (!isFull()) {
             rear = (rear + 1) % size;
             queue[rear] = x;
@@ -74,12 +80,12 @@ public class CircularQueue {
             throw new OverflowException("Cannot enqueue. Queue is full");
     }
 
-    public int dequeue() {
+    public int dequeue() throws UnderflowException {
         if (!isEmpty()) {
             front = (front + 1) % size;
             return queue[front];
         } else
-            throw new OverflowException("Cannot dequeue. Queue is empty");
+            throw new UnderflowException("Cannot dequeue. Queue is empty");
     }
 
     public void display() {
