@@ -1,3 +1,6 @@
+import Exceptions.StackOverflowException;
+import Exceptions.StackUnderflowException;
+
 import java.util.Scanner;
 
 public class Stack {
@@ -37,14 +40,19 @@ public class Stack {
                 case 1:
                     System.out.print("Enter the number you want to push : ");
                     x = sc.nextInt();
-                    s.push(x);
+                    try {
+                        s.push(x);
+                    } catch (StackOverflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
-                    x = s.pop();
-                    if (x == Integer.MIN_VALUE)
-                        System.out.println("Stack is empty");
-                    else
+                    try {
+                        x = s.pop();
                         System.out.println(x + " has been popped");
+                    } catch (StackUnderflowException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
                     s.display();
@@ -64,24 +72,24 @@ public class Stack {
         return top == -1;
     }
 
-    private void push(int x) {
+    private void push(int x) throws StackOverflowException {
         if (!isFull())
             stack[++top] = x;
         else
-            System.out.println("Stack is full. Unable to push");
+            throw new StackOverflowException("Stack is full");
     }
 
-    private int pop() {
-        return !isEmpty() ? stack[top--] : Integer.MIN_VALUE;
+    private int pop() throws StackUnderflowException {
+        if (!isEmpty())
+            return stack[top--];
+        else
+            throw new StackUnderflowException("Stack is empty");
     }
 
     private void display() {
-        if(isEmpty()) {
-            System.out.println("Stack is empty");
-            return;
-        }
+        System.out.print("[");
         for (int i = 0; i <= top; i++)
-            System.out.print(stack[i] + " ");
-        System.out.println();
+            System.out.print(stack[i] + ", ");
+        System.out.println("]");
     }
 }
