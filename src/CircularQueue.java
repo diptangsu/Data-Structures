@@ -94,10 +94,11 @@ public class CircularQueue {
     public void display() {
         if (!isEmpty()) {
             int i;
+            System.out.print("[");
             for (i = (front + 1) % size; i != rear; i = (i + 1) % size)
-                System.out.print(queue[i] + " ");
-            System.out.println(queue[i]);
+                System.out.print(queue[i] + ", ");
+            System.out.println(queue[i] + "]");
         } else
-            System.out.println("Queue is empty");
+            System.out.println("[]");
     }
 }

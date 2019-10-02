@@ -87,9 +87,14 @@ public class Stack {
     }
 
     private void display() {
+        if (isEmpty()) {
+            System.out.println("[]");
+            return;
+        }
+        int i;
         System.out.print("[");
-        for (int i = 0; i <= top; i++)
+        for (i = 0; i < top; i++)
             System.out.print(stack[i] + ", ");
-        System.out.println("]");
+        System.out.println(stack[i] + "]");
     }
 }
