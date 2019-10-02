@@ -1,4 +1,4 @@
-import exception.InvalidPositionException;
+import Exceptions.InvalidPositionException;
 
 import java.util.Scanner;
 
