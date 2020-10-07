@@ -10,7 +10,7 @@ The .py cfiles can be found in \src-python
 
 
 # Array
-An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together. 
+An array is a collection of items stored at contiguous memory locations. Its used to store multiple items of the same type together. 
 
 # Stack
 Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
