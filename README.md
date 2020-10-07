@@ -9,10 +9,11 @@ The .js cfiles can be found in \src-javascript
 The .py cfiles can be found in \src-python  
 
 
+# Array
+An array is a collection of items stored at contiguous memory locations. Its used to store multiple items of the same type together. 
 
 # Stack
 Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
-
 
 # Linked List
 A linked list is a sequence of data structures, which are connected together via links.
