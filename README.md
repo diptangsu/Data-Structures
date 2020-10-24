@@ -7,6 +7,7 @@ This contains all the programs for data structures that are a part of the syllab
 - [Java](https://github.com/diptangsu/Data-Structures/blob/master/src-java)
 - [Javascript](https://github.com/diptangsu/Data-Structures/blob/master/src-javascript)
 - [Python](https://github.com/diptangsu/Data-Structures/blob/master/src-python) :snake:
+- [Php](https://github.com/diptangsu/Data-Structures/blob/master/src-php)
 
 ---
 # Stack
@@ -62,6 +63,10 @@ A Queue is a linear structure which follows a particular order in which the oper
     - Inserting the new item at the beginning of the Queue.
 - Dequeue()
     - Taking out the last item of the Queue.
+- Peek()
+    - Get the last item of the Queue without remove it.
+- IsEmpty()
+    - Verify if Queue is empty.
 
 ---
 # Tree :deciduous_tree:
